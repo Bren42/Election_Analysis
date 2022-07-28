@@ -1,11 +1,4 @@
-# The data we need to retrieve
-# 1.the total number of votes cast
-# 2. A complete list of the candidates that received votes.
-# 3. The percentage of votes a candidate won.
-# 4. The total number of votes each candidate won.
-# 5. The winner of the election based on popular vote.
-
-
+#add the needed dependencies
 import csv
 
 import os
@@ -13,38 +6,85 @@ import os
 #assign a variable for the file to load and the path
 file_to_load= os.path.join("Resources","election_results.csv")
 
-#open the election results and read the file.
+#Initialize a total vote counter
+total_votes=0
+
+#Candidate options list.
+candidate_options=[]
+
+#Declare and empty dictionary
+candidate_votes={}
+
+#declaring a variable with an empty string value
+winning_candidate=('')
+winning_count=0
+winning_percent=0
+
+
+#open the election results and read the file. with the reader function
 with open(file_to_load) as election_data:
-
-#todo read and analyze the data here.
-
-    #read the file object with the reader function
     file_reader=csv.reader(election_data)
 
-    #Print the header row
+    #read and move past the headers row
     headers=next(file_reader)
 
-    print(headers)
-     
+    #Print each row in the csv file(use a for loop)
+    for row in file_reader:
+        #Add the total votes
+        total_votes+=1
 
-#using the with statement open the file as a text file
+        #print the candidates name from each row.
+        candidate_name=row[2]
+        
 
+        #If statement to check for names and write only unique
+        if candidate_name not in candidate_options:
+            
+            #add it to the list of candidates
+            candidate_options.append(candidate_name)
+            
+            #begin tracking the candidates vote count.
+            candidate_votes[candidate_name]=0
 
-
-
-    #to do: Perform analysis
-
-
-
-#create a file name variable to a direct or indirect path to the file
-
-
-#using the with statement open the file as a text file
-
-
-#write some data to the file
+        #run through the for loop to add a vote to the candidates name
+        candidate_votes[candidate_name]+=1 
     
-#close the file.
+   
+
+#determine the percentage of votes by candidate
+#1.iterate through the candidate list.
+for candidate_name in candidate_votes:
+    
+    #retrieve vote count of candidate
+    votes=candidate_votes[candidate_name]
+    
+    #calculate the percentage of votes
+    vote_percentage=float(votes)/float(total_votes)*100
+
+#print candidate information, vote count and percentage
+    print(f"{candidate_name}:{vote_percentage:.1f}% ({votes:,})\n")
+
+
+
+ #determine if the candidate votes are greater than the winning count
+    if (votes>winning_count) and (vote_percentage>winning_percent):
+        
+        #if true set winning_count and winning percentage
+        winning_count=votes
+
+        winning_percent=vote_percentage
+
+        winning_candidate=candidate_name
+
+winning_candidate_summary =(
+f"--------------------\n"
+f'Winner:{winning_candidate}\n'
+f"Winning Vote Count:{winning_count}\n"
+f"Winning Percentage:{winning_percent:.1f}%\n"
+f"--------------------")
+
+print(winning_candidate_summary)
+
 
 
 
