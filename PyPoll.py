@@ -78,11 +78,16 @@ with open(file_to_write,'w') as txt_file:
         vote_percentage=float(votes)/float(total_votes)*100
 
     #print candidate information, vote count and percentage
-        #print(f"{candidate_name}:{vote_percentage:.1f}% ({votes:,})\n") commented out as it is no longer needed in the code
+        candidate_results=(f"{candidate_name}:{vote_percentage:.1f}% ({votes:,})\n")
+
+    #print candidate results to the terminal
+        print(candidate_results)
+
+    #write candidate results to a text file
+        txt_file.write(candidate_results)
+    
 
         
-
-
     #determine if the candidate votes are greater than the winning count
         if (votes>winning_count) and (vote_percentage>winning_percent):
             
@@ -99,7 +104,8 @@ with open(file_to_write,'w') as txt_file:
     f"Winning Vote Count:{winning_count}\n"
     f"Winning Percentage:{winning_percent:.1f}%\n"
     f"--------------------")
-
+    
+    txt_file.write(winning_candidate_summary)
     #print(winning_candidate_summary) commented out as this is no longer needed at this time. remove comment hash to use this code line.
 
 
