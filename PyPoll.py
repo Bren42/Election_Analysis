@@ -7,7 +7,7 @@ import os
 file_to_load= os.path.join("Resources","election_results.csv")
 
 #assign a variable to write results to
-file_to_write=os.path.join("resources", "Election_outcomes.txt")
+file_to_write=os.path.join("analysis", "Election_outcomes.txt")
 
 #Initialize a total vote counter
 total_votes=0
