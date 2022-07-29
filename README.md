@@ -3,11 +3,11 @@
 ##Project Overview
 In this project we were given election data from a recent election in Colorado. We were asked to audit the results using the CSV data given to us and compile it into readable outcomes.
 
-# 1.Produce the total number of votes cast
-# 2. A complete list of the candidates that received votes.
-# 3. The percentage of votes a candidate won.
-# 4. The total number of votes each candidate won.
-# 5. The winner of the election based on popular vote.
+ ### 1.Produce the total number of votes cast
+ ### 2. A complete list of the candidates that received votes.
+ ### 3. The percentage of votes a candidate won.
+ ### 4. The total number of votes each candidate won.
+ ### 5. The winner of the election based on popular vote.
 
 ##Resources
 -Data Source: election_results.csv
