@@ -6,6 +6,9 @@ import os
 #assign a variable for the file to load and the path
 file_to_load= os.path.join("Resources","election_results.csv")
 
+#assign a variable to write results to
+file_to_write=os.path.join("resources", "Election_outcomes.txt")
+
 #Initialize a total vote counter
 total_votes=0
 
@@ -49,42 +52,55 @@ with open(file_to_load) as election_data:
         #run through the for loop to add a vote to the candidates name
         candidate_votes[candidate_name]+=1 
     
-   
+#write results into a text file
+with open(file_to_write,'w') as txt_file:
 
-#determine the percentage of votes by candidate
-#1.iterate through the candidate list.
-for candidate_name in candidate_votes:
-    
-    #retrieve vote count of candidate
-    votes=candidate_votes[candidate_name]
-    
-    #calculate the percentage of votes
-    vote_percentage=float(votes)/float(total_votes)*100
+    #Write the election results using an F string literal
+    election_results=(f'\nElection Results\n'
+    f'-------------------------\n'
+    f'Total Votes:{total_votes:,}\n'
+    f'-------------------------\n')
 
-#print candidate information, vote count and percentage
-    print(f"{candidate_name}:{vote_percentage:.1f}% ({votes:,})\n")
+    print(election_results,end="")
 
+    #save election results to a txt file.
+    txt_file.write(election_results)
 
+    #determine the percentage of votes by candidate
+    #1.iterate through the candidate list.
 
- #determine if the candidate votes are greater than the winning count
-    if (votes>winning_count) and (vote_percentage>winning_percent):
+    for candidate_name in candidate_votes:
         
-        #if true set winning_count and winning percentage
-        winning_count=votes
+        #retrieve vote count of candidate
+        votes=candidate_votes[candidate_name]
+        
+        #calculate the percentage of votes
+        vote_percentage=float(votes)/float(total_votes)*100
 
-        winning_percent=vote_percentage
+    #print candidate information, vote count and percentage
+        #print(f"{candidate_name}:{vote_percentage:.1f}% ({votes:,})\n") commented out as it is no longer needed in the code
 
-        winning_candidate=candidate_name
-
-winning_candidate_summary =(
-f"--------------------\n"
-f'Winner:{winning_candidate}\n'
-f"Winning Vote Count:{winning_count}\n"
-f"Winning Percentage:{winning_percent:.1f}%\n"
-f"--------------------")
-
-print(winning_candidate_summary)
+        
 
 
+    #determine if the candidate votes are greater than the winning count
+        if (votes>winning_count) and (vote_percentage>winning_percent):
+            
+            #if true set winning_count and winning percentage
+            winning_count=votes
+
+            winning_percent=vote_percentage
+
+            winning_candidate=candidate_name
+
+    winning_candidate_summary=(
+    f"--------------------\n"
+    f'Winner:{winning_candidate}\n'
+    f"Winning Vote Count:{winning_count}\n"
+    f"Winning Percentage:{winning_percent:.1f}%\n"
+    f"--------------------")
+
+    #print(winning_candidate_summary) commented out as this is no longer needed at this time. remove comment hash to use this code line.
 
 
+  
