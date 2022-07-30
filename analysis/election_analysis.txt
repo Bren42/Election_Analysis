@@ -1,3 +1,31 @@
-counties in the election
-arapahoe
-Salt Lake
+
+Election Results
+-------------------------
+Total Votes: 369,711
+-------------------------
+
+County Votes:
+
+-----------------------------------------------------------------
+Jefferson: County Vote percent 10.5%|| County Vote Total (38855)
+-----------------------------------------------------------------
+Denver: County Vote percent 82.8%|| County Vote Total (306055)
+-----------------------------------------------------------------
+Arapahoe: County Vote percent 6.7%|| County Vote Total (24801)
+
+County with most total votes:Denver
+Total Votes received: 306055
+
+Candidate 
+Charles Casper Stockham: 23.0% (85,213)
+
+Candidate 
+Diana DeGette: 73.8% (272,892)
+
+Candidate 
+Raymon Anthony Doane: 3.1% (11,606)
+------------------------
+Winner: Diana DeGette
+Winning Vote Count: 272,892
+Winning Percentage: 73.8%
+-------------------------
