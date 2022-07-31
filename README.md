@@ -27,5 +27,6 @@ The analysis of the election shows:
 -The winner of the Election was Diana Degette with 73.8% of the vote and a total vote count of 272,892
 
 ## Challenge overview
-
+The election audit allowed us to create a python program that could go through each candidate to tally the number of unique votes cast, we could then use this to build a total number of votes cast and then mathematically compare that to each candidates totals, as well as each county. We could then use the total counts and based on the outcomes for each candidate we were able to show the percentage of vote totals, as well as the percentage of votes going to each candidate and county. 
 ## Challenge Summary
+The nice part of this code is that it can be utlized in other elections by merely pointing it to another csv file with a similar data structure. As we used a lot of open lists and variables that assigned outputs based on the counts they pulled from iterating(looping) through the data we would not need to refactor the code much beyond pointing it towards an updated csv file. It should also be noted that if more variables were added to future election analsyis it would not be hard to add into this code to output, for instance we could add a percentage of vote per candidate by county if we wanted to see the data in that format. So this is a relatively versatile, simple, piece of code that can serve multiple purposes for future data analysis.
